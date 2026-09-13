@@ -1,0 +1,6 @@
+{
+  "name": "Signify",
+  "description": "Sign language fingerspelling translator with real-time visual hold-confirmation and text-to-speech.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
