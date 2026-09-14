@@ -4,12 +4,12 @@ __pycache__/
 .venv/
 venv/
 env/
-.env
 
 *.pt
 *.pth
 *.onnx
 *.h5
+!model.pt
 checkpoints/
 runs/
 wandb/
@@ -32,8 +32,9 @@ yarn-error.log*
 *.pem
 *.key
 
-
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+
+landmarks.csv
