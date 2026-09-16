@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { CameraStatus, MockPrediction } from './types.ts';
+import { useSignPredictor } from './useSignPredictor';
 
 const CONFIDENCE_THRESHOLD = 0.7;
 const DEFAULT_HOLD_DURATION_MS = 1000;
@@ -72,6 +73,21 @@ export default function App() {
   });
 
   const [isMockStreamRunning, setIsMockStreamRunning] = useState<boolean>(true);
+
+  // Real backend predictions — active whenever the mock stream is paused.
+  // This lets the existing "Pause/Resume Auto Stream" button double as a
+  // mock-vs-live switch: paused = live predictions from the real backend.
+  const { prediction: livePrediction, isConnected, error: backendError } = useSignPredictor(
+    videoRef,
+    { enabled: cameraStatus === 'connected' && !isMockStreamRunning }
+  );
+
+  useEffect(() => {
+    if (!isMockStreamRunning) {
+      setPrediction(livePrediction);
+    }
+  }, [livePrediction, isMockStreamRunning]);
+
   const [forceLowConfidence, setForceLowConfidence] = useState<boolean>(false);
   const [holdDurationMs, setHoldDurationMs] = useState<number>(DEFAULT_HOLD_DURATION_MS);
 
@@ -335,6 +351,22 @@ export default function App() {
                 ? `CONFIDENCE: ${(prediction.confidence * 100).toFixed(0)}% (TOO LOW <70%)`
                 : `CONFIDENCE: ${(prediction.confidence * 100).toFixed(0)}% (OK)`}
             </div>
+
+            {/* Backend connection status — only relevant once the mock stream is paused
+                and we're actually talking to the real /predict endpoint. */}
+            {!isMockStreamRunning && (
+              <div
+                id="backend-status-indicator"
+                title={backendError ?? undefined}
+                className={`px-2.5 py-1 border-2 font-bold uppercase ${
+                  isConnected
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-800'
+                    : 'border-rose-600 bg-rose-50 text-rose-800'
+                }`}
+              >
+                {isConnected ? 'BACKEND: LIVE' : `BACKEND: UNREACHABLE`}
+              </div>
+            )}
           </div>
         </header>
 
