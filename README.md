@@ -1,5 +1,10 @@
 # Signify
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![TypeScript](https://img.shields.io/badge/TypeScript-React-blue?logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
+
 Computer vision powered sign language fingerspelling translator. Signify watches your hand through a webcam, recognizes ASL fingerspelling letters in real time, lets you build up a message by holding each sign steady to confirm it, and speaks the finished message aloud.
 
 Built as a two-person portfolio project: computer vision and backend by [Tan](https://github.com/TunasTuna), frontend by Kervin.
