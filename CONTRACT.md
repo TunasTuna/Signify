@@ -18,7 +18,6 @@ The frontend sends **hand landmarks**, not raw frames — MediaPipe runs client-
   "landmarks": [
     { "x": 0.42, "y": 0.61, "z": -0.03 },
     { "x": 0.45, "y": 0.58, "z": -0.02 }
-    // ... 21 points total, one per hand landmark, in MediaPipe's standard order
   ]
 }
 ```
