@@ -3,7 +3,6 @@
 <img src="./docs/signify-banner.png" alt="Signify — ASL fingerspelling translator" width="700">
 
 # Signify
-
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![TypeScript](https://img.shields.io/badge/TypeScript-React-blue?logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green)
