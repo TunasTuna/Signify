@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
 
-<img src="./docs/asl-alphabet.png" alt="ASL fingerspelling alphabet chart" width="600">
+<img src="./docs/signify-banner.png" alt="Signify — ASL fingerspelling translator" width="700">
 
 </div>
 
